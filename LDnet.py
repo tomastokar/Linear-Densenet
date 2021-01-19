@@ -26,8 +26,8 @@ class BNDense(nn.Module):
         self.lin_2 = nn.Linear(output_size * bn_size, output_size)
 
     def forward(self, x):
-        out = self.lin_1(self.activ(self.bnorm_1(x))
-	out = self.lin_2(self.activ(self.bnorm_2(x))
+        out = self.lin_1(self.activ(self.bnorm_1(x)))
+	out = self.lin_2(self.activ(self.bnorm_2(out)))
         out = self.lin2(self.activ(out))
         out = torch.cat([x, out], 1)
 
